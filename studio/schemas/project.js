@@ -26,5 +26,13 @@ export default {
       of: [{ type: "string" }],
       options: { layout: "tags" },
     },
+    {
+      name: "video",
+      title: "Upload Video",
+      type: "file",
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 };

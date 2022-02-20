@@ -9,37 +9,31 @@ export default {
       type: "string",
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-    },
-    {
       name: "author",
       title: "Author",
       type: "reference",
       to: { type: "author" },
     },
     {
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: [
+          { value: "feature", title: "Feature Videos" },
+          { value: "latest", title: "Latest Videos" },
+          { value: "trending", title: "Trending Videos" },
+        ],
+      },
+    },
+    { name: "description", type: "text" },
+    {
+      name: "video",
+      title: "Upload Video",
+      type: "file",
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: "publishedAt",
-      title: "Published at",
-      type: "datetime",
-    },
-    {
-      name: "body",
-      title: "Body",
-      type: "blockContent",
     },
   ],
 

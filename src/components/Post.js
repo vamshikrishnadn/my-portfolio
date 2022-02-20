@@ -20,7 +20,10 @@ function Post() {
                     }
                   }`
       )
-      .then((data) => setPostData(data))
+      .then((data) => {
+        console.log(data);
+        setPostData(data);
+      })
       .catch(console.error);
   }, []);
 

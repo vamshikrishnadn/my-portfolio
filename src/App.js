@@ -1,24 +1,17 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import About from "./components/About";
-import Home from "./components/Home";
-import Post from "./components/Post";
-import Project from "./components/Project";
-import SinglePost from "./components/SinglePost";
-import NavBar from "./components/NavBar";
+import HomePage from "./components/HomePage";
+import Header from "./components/Navbar/Header";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-      <NavBar />
+      <Header />
       <Routes>
-        <Route element={<Home />} path="/" exact />
-        <Route element={<About />} path="/about" />
-        <Route element={<SinglePost />} path="/post/:slug" />
-        <Route element={<Post />} path="/post" />
-        <Route element={<Project />} path="/project" />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
