@@ -116,6 +116,12 @@
   border: 2px solid #fff;
 }
 
+.feature-video {
+  width: 70vw;
+  object-fit: cover;
+  height: 500px;
+}
+
 .search-input input::placeholder {
   color: #fff !important;
 }

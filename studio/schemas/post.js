@@ -15,6 +15,15 @@ export default {
       to: { type: "author" },
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
       name: "category",
       title: "Category",
       type: "string",
