@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../../client";
 import Carousel from "react-elastic-carousel";
+import { Link } from "react-router-dom";
 
 const VideosSection = (props) => {
   const [videos, setVideos] = useState([]);
@@ -17,6 +18,7 @@ const VideosSection = (props) => {
       .fetch(
         `*[_type=="post"]{
         title,
+        slug,
         author,
         category,
         description,
@@ -37,8 +39,8 @@ const VideosSection = (props) => {
 
   if (!videos) {
     return (
-      <div class="preloader">
-        <img src="images/giphy.gif" class="loader" />
+      <div className="preloader">
+        <img src="images/giphy.gif" className="loader" />
       </div>
     );
   }
@@ -63,16 +65,18 @@ const VideosSection = (props) => {
                     key={video.video.asset._id}
                     className="mx-1 videoSection"
                   >
-                    <video
-                      src={video.video.asset.url}
-                      autoPlay={true}
-                      muted={true}
-                      loop
-                      // controls={true}
-                      className="latest-video"
-                      className="w-100"
-                      style={{ borderRadius: "10px" }}
-                    ></video>
+                    <Link to={`/single-video/${video.slug.current}`}>
+                      <video
+                        src={video.video.asset.url}
+                        autoPlay={true}
+                        muted={true}
+                        loop
+                        // controls={true}
+                        className="latest-video"
+                        className="w-100"
+                        style={{ borderRadius: "10px" }}
+                      ></video>
+                    </Link>
                   </div>
                 );
               }

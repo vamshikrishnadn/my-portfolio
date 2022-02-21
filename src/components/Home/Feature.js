@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../../client";
 import Carousel from "react-elastic-carousel";
+import { Link } from "react-router-dom";
 
 const Feature = () => {
   const [videos, setVideos] = useState([]);
@@ -16,6 +17,7 @@ const Feature = () => {
       .fetch(
         `*[_type=="post"]{
         title,
+        slug,
         author,
         category,
         description,
@@ -36,8 +38,8 @@ const Feature = () => {
 
   if (!videos) {
     return (
-      <div class="preloader">
-        <img src="images/giphy.gif" class="loader" />
+      <div className="preloader">
+        <img src="images/giphy.gif" className="loader" />
       </div>
     );
   }
@@ -61,14 +63,16 @@ const Feature = () => {
               }
               return (
                 <div key={video.video.asset._id}>
-                  <video
-                    src={video.video.asset.url}
-                    autoPlay={true}
-                    muted={true}
-                    loop
-                    // controls={true}
-                    className="feature-video"
-                  ></video>
+                  <Link to={`/single-video/${video.slug.current}`}>
+                    <video
+                      src={video.video.asset.url}
+                      autoPlay={true}
+                      muted={true}
+                      loop
+                      // controls={true}
+                      className="feature-video"
+                    ></video>
+                  </Link>
                 </div>
               );
             }

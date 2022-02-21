@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Header from "./components/Navbar/Header";
 import Services from "./components/Services/Services";
-import SingleVideo from "./components/About/SingleVideo";
+import SingleVideo from "./components/Home/SingleVideo";
 
 const App = () => {
   return (

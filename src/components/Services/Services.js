@@ -9,6 +9,7 @@ function Services() {
       .fetch(
         `*[_type=="post"]{
         title,
+        slug,
         author,
         category,
         description,
@@ -29,8 +30,8 @@ function Services() {
 
   if (!videos) {
     return (
-      <div class="preloader">
-        <img src="images/giphy.gif" class="loader" />
+      <div className="preloader">
+        <img src="images/giphy.gif" className="loader" />
       </div>
     );
   }
@@ -38,63 +39,69 @@ function Services() {
     <div>
       <div
         id="carouselExampleIndicators"
-        class="carousel slide"
+        className="carousel slide"
         data-ride="carousel"
       >
-        <ol class="carousel-indicators">
+        <ol className="carousel-indicators">
           <li
             data-target="#carouselExampleIndicators"
             data-slide-to="0"
-            class="active"
+            className="active"
           ></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <img
-              class="d-block w-100"
+              className="d-block w-100"
               src="./Images/carousle1.jpg"
               alt="First slide"
             />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img
-              class="d-block w-100"
+              className="d-block w-100"
               src="./Images/carousle2.jpg"
               alt="Second slide"
             />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img
-              class="d-block w-100"
+              className="d-block w-100"
               src="./Images/carousle3.jpg"
               alt="Third slide"
             />
           </div>
         </div>
         <a
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           href="#carouselExampleIndicators"
           role="button"
           data-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="sr-only">Previous</span>
         </a>
         <a
-          class="carousel-control-next"
+          className="carousel-control-next"
           href="#carouselExampleIndicators"
           role="button"
           data-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="sr-only">Next</span>
         </a>
       </div>
 
-      <h4 className="mt-4 text-center mb-3">All Videos</h4>
       <div className="container">
+        <h4 className="mt-4 text-left ml-3 mb-3">All Videos</h4>
         <div className="row">
           {videos.map((video) => {
             return (
@@ -102,14 +109,14 @@ function Services() {
                 key={video.video.asset._id}
                 className="col-12 col-md-4  my-3"
               >
-                <Link to="/single-video">
+                <Link to={`/single-video/${video.slug.current}`}>
                   <video
                     src={video.video.asset.url}
                     autoPlay={true}
                     muted={true}
                     loop
                     // controls={true}
-                    className="w-100"
+                    className="w-100 h-100"
                     style={{ width: "100", borderRadius: "10px" }}
                   ></video>
                 </Link>
