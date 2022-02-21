@@ -20,9 +20,9 @@ const Header = () => {
     <section className="nav">
       <div className="cus-container ">
         <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-between">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <span className="logo">Logo</span>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -51,9 +51,14 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link  px-4" href="#">
+                <Link
+                  className={`nav-link  px-4  ${
+                    window.location.pathname === "/services" ? "active" : ""
+                  }`}
+                  to="/services"
+                >
                   Services
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link  px-4" href="#">
