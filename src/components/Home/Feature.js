@@ -45,7 +45,7 @@ const Feature = () => {
   return (
     <section>
       <div className="mt-4">
-        <h2 className="text-center my-2 mb-4 mt-lg-4">Featured Videos</h2>
+        <h4 className="text-center my-2 mb-4 mt-lg-4">Featured Videos</h4>
         <Carousel
           // breakPoints={breakPoints}
           enableAutoPlay

@@ -93,7 +93,7 @@ function Services() {
         </a>
       </div>
 
-      <h2 className="mt-4 text-center mb-3">All Videos</h2>
+      <h4 className="mt-4 text-center mb-3">All Videos</h4>
       <div className="container">
         <div className="row">
           {videos.map((video) => {
@@ -110,7 +110,7 @@ function Services() {
                     loop
                     // controls={true}
                     className="w-100"
-                    style={{ width: "100" }}
+                    style={{ width: "100", borderRadius: "10px" }}
                   ></video>
                 </Link>
               </div>

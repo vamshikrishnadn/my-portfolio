@@ -46,7 +46,7 @@ const VideosSection = (props) => {
   return (
     <section>
       <div className="mt-4">
-        <h2 className="text-center my-2 mb-4 mt-lg-4">{props.title}</h2>
+        <h4 className="my-2 mb-4 ml-4 mt-lg-4">{props.title}</h4>
         <div className="">
           <Carousel
             breakPoints={breakPoints}
@@ -71,6 +71,7 @@ const VideosSection = (props) => {
                       // controls={true}
                       className="latest-video"
                       className="w-100"
+                      style={{ borderRadius: "10px" }}
                     ></video>
                   </div>
                 );
