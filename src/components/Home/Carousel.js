@@ -15,7 +15,7 @@ function Carousel() {
       }`
       )
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setVideos(data);
       })
       .catch(console.error);

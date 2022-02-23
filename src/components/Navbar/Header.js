@@ -61,9 +61,14 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link  px-4" href="#">
-                  About
-                </a>
+                <Link
+                  className={`nav-link  px-4  ${
+                    window.location.pathname === "/upload" ? "active" : ""
+                  }`}
+                  to="/upload"
+                >
+                  Upload
+                </Link>
               </li>
             </ul>
           </div>

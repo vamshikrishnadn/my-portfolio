@@ -13,12 +13,8 @@ function Services() {
         author,
         category,
         description,
-        video{
-          asset->{
-            _id,
-            url
-          }
-        },
+        video,
+        url
       }`
       )
       .then((data) => {
@@ -111,7 +107,7 @@ function Services() {
               >
                 <Link to={`/single-video/${video.slug.current}`}>
                   <video
-                    src={video.video.asset.url}
+                    src={video.url}
                     autoPlay={true}
                     muted={true}
                     loop

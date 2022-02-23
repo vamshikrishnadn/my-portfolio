@@ -36,6 +36,7 @@ export default {
       },
     },
     { name: "description", type: "text" },
+    { name: "url", type: "string", title: "Video Url" },
     {
       name: "video",
       title: "Upload Video",

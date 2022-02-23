@@ -14,23 +14,20 @@ function SingleVideo() {
   const { slug } = useParams();
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
     sanityClient
       .fetch(
-        `*[slug.current=="${slug}"]{
+        `*[slug.current=="${queryParams.get("slug")}"]{
+          video,
           title,
           author,
           category,
           description,
-          video{
-            asset->{
-              _id,
-              url
-            }
-          },
+          url,
     }`
       )
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         setVideos(data[0]);
       })
       .catch(console.error);
@@ -40,14 +37,15 @@ function SingleVideo() {
     if (videos.length === 0) {
       return (
         <div class="preloader">
-          <i class="fa-solid fa-spinner fa-3x"></i>
+          <img src="./Images/giphy.gif" class="loader" />
         </div>
       );
     } else {
       return (
         <div>
+          <p className="text-justify my-2">{videos.description}</p>
           <video
-            src={videos.video.asset.url}
+            src={videos.url}
             autoPlay={true}
             muted={true}
             loop
@@ -57,7 +55,6 @@ function SingleVideo() {
 
           <div>
             <h5>{videos.title}</h5>
-            <p className="text-justify my-2">{videos.description}</p>
           </div>
         </div>
       );

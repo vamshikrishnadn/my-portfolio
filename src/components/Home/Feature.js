@@ -16,17 +16,13 @@ const Feature = () => {
     sanityClient
       .fetch(
         `*[_type=="post"]{
-        title,
-        slug,
-        author,
-        category,
+          title,
+          slug,
+          author,
+          category,
+          url,
         description,
-        video{
-          asset->{
-            _id,
-            url
-          }
-        },
+        video,
       }`
       )
       .then((data) => {
@@ -58,14 +54,11 @@ const Feature = () => {
         >
           {videos.map((video) => {
             if (video.category === "feature") {
-              {
-                /* console.log(video.video.asset.url); */
-              }
               return (
-                <div key={video.video.asset._id}>
-                  <Link to={`/single-video/${video.slug.current}`}>
+                <div key={video.slug.current}>
+                  <Link to={`/single-video?slug=${video.slug.current}`}>
                     <video
-                      src={video.video.asset.url}
+                      src={video.url}
                       autoPlay={true}
                       muted={true}
                       loop

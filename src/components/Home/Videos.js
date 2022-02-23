@@ -19,15 +19,11 @@ const VideosSection = (props) => {
         `*[_type=="post"]{
         title,
         slug,
+        url,
         author,
         category,
         description,
-        video{
-          asset->{
-            _id,
-            url
-          }
-        },
+        video,
       }`
       )
       .then((data) => {
@@ -61,13 +57,10 @@ const VideosSection = (props) => {
             {videos.map((video) => {
               if (video.category === props.search) {
                 return (
-                  <div
-                    key={video.video.asset._id}
-                    className="mx-1 videoSection"
-                  >
-                    <Link to={`/single-video/${video.slug.current}`}>
+                  <div key={video.slug.current} className="mx-1 videoSection">
+                    <Link to={`/single-video?slug=${video.slug.current}`}>
                       <video
-                        src={video.video.asset.url}
+                        src={video.url}
                         autoPlay={true}
                         muted={true}
                         loop
