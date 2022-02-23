@@ -105,7 +105,7 @@ function Services() {
                 key={video.video.asset._id}
                 className="col-12 col-md-4  my-3"
               >
-                <Link to={`/single-video/${video.slug.current}`}>
+                <Link to={`/single-video?slug=${video.slug.current}`}>
                   <video
                     src={video.url}
                     autoPlay={true}

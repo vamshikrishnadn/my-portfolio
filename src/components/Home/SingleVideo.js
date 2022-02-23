@@ -27,7 +27,7 @@ function SingleVideo() {
     }`
       )
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setVideos(data[0]);
       })
       .catch(console.error);
