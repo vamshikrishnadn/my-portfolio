@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../../client";
 import { Link } from "react-router-dom";
+import Header from "../Navbar/Header";
 
 function Services() {
   const [videos, setVideos] = useState([]);
@@ -33,6 +34,7 @@ function Services() {
   }
   return (
     <div>
+      <Header />
       <div
         id="carouselExampleIndicators"
         className="carousel slide"

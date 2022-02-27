@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Header from "../Navbar/Header";
 
 function Upload() {
   const [imageSelected, setImageSelected] = useState();
@@ -29,31 +30,34 @@ function Upload() {
   };
 
   return (
-    <div
-      className="mt-4 align-items-center justify-content-center d-flex mx-auto w-100"
-      style={{ flexDirection: "column" }}
-    >
-      <div class=" w-50">
-        <input
-          type="file"
-          id="validatedCustomFile"
-          onChange={(e) => {
-            setImageSelected(e.target.files);
-          }}
-        />
-      </div>
-      <button
-        onClick={() => {
-          uploadFile();
-        }}
-        className="btn btn-primary my-2"
+    <div>
+      <Header />
+      <div
+        className="mt-4 align-items-center justify-content-center d-flex mx-auto w-100"
+        style={{ flexDirection: "column" }}
       >
-        {!loading ? "Upload Video" : "Uploading..."}
-      </button>
+        <div class=" w-50">
+          <input
+            type="file"
+            id="validatedCustomFile"
+            onChange={(e) => {
+              setImageSelected(e.target.files);
+            }}
+          />
+        </div>
+        <button
+          onClick={() => {
+            uploadFile();
+          }}
+          className="btn btn-primary my-2"
+        >
+          {!loading ? "Upload Video" : "Uploading..."}
+        </button>
 
-      <div className={`alert ${alert ? "alert-success" : ""}`} role="alert">
-        <b>Video Url: </b>
-        {url}
+        <div className={`alert ${alert ? "alert-success" : ""}`} role="alert">
+          <b>Video Url: </b>
+          {url}
+        </div>
       </div>
     </div>
   );

@@ -1,22 +1,28 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Header from "./components/Navbar/Header";
 import Services from "./components/Services/Services";
 import SingleVideo from "./components/Home/SingleVideo";
 import Upload from "./components/Upload/Upload";
+import SignIn from "./components/login/SignIn";
+import SignUp from "./components/login/SignUp";
+import userInfo from "./components/Account/userInfo";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<Services />} />
+      {/* <Header /> */}
+      <Switch>
+        <Route path="/" exact component={SignIn} />
+        <Route path="/signup" exact component={SignUp} />
+        <Route path="/services" exact component={Services} />
         {/* <Route path="/single-video/:slug" element={<SingleVideo />} /> */}
-        <Route path="/single-video" element={<SingleVideo />} />
-        <Route path="/upload" element={<Upload />} />
-      </Routes>
+        <Route path="/single-video" exact component={SingleVideo} />
+        <Route path="/upload" exact component={Upload} />
+        <Route path="/home" exact component={HomePage} />
+        <Route path="/user" exact component={userInfo} />
+      </Switch>
     </BrowserRouter>
   );
 };
